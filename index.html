@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Full Packaged Woman | Lynda Forteh</title>
+    <style>
+        :root {
+            --primary-color: #6d597a; /* Elegant Muted Purple */
+            --secondary-color: #b56576; /* Warm Rose */
+            --accent-color: #e56b6f; /* Soft Coral */
+            --bg-color: #fffafb;
+            --text-dark: #352f36;
+            --text-light: #ffffff;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-color);
+        }
+
+        /* Header & Hero */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        header p.tagline {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .contact-bar {
+            background: #4a3b54;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .contact-bar a {
+            color: #ffb5a7;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        nav button {
+            background: none;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        nav button:hover, nav button.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .month-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--secondary-color);
+            display: none; /* Controlled by JS */
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .month-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .month-header h2 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            text-transform: uppercase;
+        }
+
+        .month-header .theme {
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .section-title {
+            color: var(--secondary-color);
+            margin: 20px 0 10px 0;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .content-box {
+            background: #fdf8f9;
+            padding: 20px;
+            border-left: 3px solid var(--accent-color);
+            margin-bottom: 20px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .biblical-box {
+            font-style: italic;
+            background: #f4eff5;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #352f36;
+            color: white;
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .month-card { padding: 20px; }
+            nav button { font-size: 0.8rem; padding: 5px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="contact-bar">
+    <span>📞 Call/WhatsApp: 677273516</span>
+    <a href="mailto:lynda4te@gmail.com">📧 lynda4te@gmail.com</a>
+</div>
+
+<header>
+    <h1>The Full Packaged Woman</h1>
+    <p class="tagline">Establishing Whole Women for a Balanced, Purposeful & God-Glorifying Life.</p>
+</header>
+
+<nav id="monthNav">
+    </nav>
+
+<main id="contentArea">
+    </main>
+
+<footer>
+    <p>&copy; 2026 The Full Packaged Woman by Lynda Forteh</p>
+    <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Rooted in Christ, Built for Purpose, Released for Impact.</p>
+</footer>
+
+<script>
+    const curriculum = [
+        {
+            month: "January",
+            title: "Rooted Identity",
+            theme: "From Labels to Legacy",
+            insight: "We often suffer from 'Identity Displacement'—trying to live out of a version of ourselves that was created by a parent’s criticism, a past failure, or a social media filter. Wholeness begins when you realize you are not what you do, but whose you are.",
+            biblical: "Galatians 4:7. You are no longer a slave but an heir. A slave works for a wage; an heir lives from an inheritance. Your 'Root' is in the covenant, not your performance.",
+            questions: [
+                "If all my earthly titles (Wife, Mother, Career Woman) were stripped away today, what would be left of 'Me'?",
+                "Whose voice—a critic, an ex, or a parent—do I hear in my head when I make a mistake?"
+            ],
+            actions: [
+                "The Identity Script: Write down 5 'Lies' you believe about yourself. Find 5 Scriptures that refute them. Record and listen for 21 days.",
+                "The Mirror Declaration: Stand before a mirror and call yourself by God’s names: Beloved, Chosen, Masterpiece, Redeemed."
+            ]
+        },
+        {
+            month: "February",
+            title: "Intimacy & Spiritual Discipline",
+            theme: "Growing Deep Roots",
+            insight: "Prayer is not a religious chore; it is the 'Umbilical Cord' of your spirit. Discipline is simply the structure that protects intimacy.",
+            biblical: "Mark 1:35. Jesus rose 'a great while before day.' If the Son of God needed solitary time to survive His mission, how much more do we?",
+            questions: [
+                "Is my prayer life a dialogue of love or a monologue of requests?",
+                "Am I afraid of silence? What am I trying to drown out with noise and 'busy-ness'?"
+            ],
+            actions: [
+                "The Sacred 15: Wake up 15 mins earlier. 5 mins silence, 5 mins Word, 5 mins thanksgiving.",
+                "The Digital Fast: Keep your phone in a different room for 3 hours daily."
+            ]
+        },
+        {
+            month: "March",
+            title: "Emotional & Mental Health",
+            theme: "Healing the Woman Within",
+            insight: "You cannot pour from a cup that is cracked. Healing is not a sign of weakness; it is a sign of spiritual maturity.",
+            biblical: "Psalm 147:3. He heals the brokenhearted (Hebrew 'rapha': to mend by stitching). God is the surgeon who wants to close your wounds.",
+            questions: [
+                "Where am I overreacting today because of a wound from yesterday?",
+                "What 'secret grief' have I been carrying that I haven't allowed God to touch?"
+            ],
+            actions: [
+                "The Forgiveness Ledger: Write a letter detailing a 'debt' owed to you, then write 'PAID IN FULL' across it.",
+                "The Emotion Journal: For 7 days, name your top 3 emotions and ask God 'Why?'"
+            ]
+        },
+        {
+            month: "April",
+            title: "Financial Stewardship",
+            theme: "Faithful with Little, Ready for Much",
+            insight: "Money is a tool, but it can easily become a 'god.' A Full Packaged Woman is a Distributor, not just a Consumer.",
+            biblical: "Proverbs 31:16. 'She considers a field and buys it.' This woman is an investor who creates a vineyard for the future.",
+            questions: [
+                "Does my bank statement reflect my God-given priorities or my emotional impulses?",
+                "Do I believe God is my Source, or is my security tied to my paycheck?"
+            ],
+            actions: [
+                "The Kingdom Budget: Create a budget that includes a 'Seed Fund' to bless others unexpectedly.",
+                "The Debt Inventory: List debts and create a 'Freedom Plan' with prayer over each item."
+            ]
+        },
+        {
+            month: "May",
+            title: "Home Care & Life Skills",
+            theme: "Wisdom for Daily Living",
+            insight: "Order is the container for a miracle. When your home is in chaos, your spirit is distracted. Move from Housekeeping to Sanctuary Building.",
+            biblical: "Luke 10:38-42. The balance between the 'Hands of Martha' and the 'Heart of Mary.' Manage home with excellence to sit at His feet.",
+            questions: [
+                "If Jesus walked into my home today, would He find an atmosphere of peace or stress?",
+                "What part of my daily routine is currently stealing my joy?"
+            ],
+            actions: [
+                "The Peace Protocol: Declutter one area (closet/desk), anoint it with oil, and pray for peace.",
+                "The Meal-Prep Worship: Prep healthy meals while playing worship music."
+            ]
+        },
+        {
+            month: "June",
+            title: "Skincare, Health & Presentation",
+            theme: "Caring for God’s Temple",
+            insight: "Your body is the only vehicle you have to fulfill your purpose. Self-care is not vanity; it is Stewardship.",
+            biblical: "1 Corinthians 6:19-20. Your body is a temple. Explore the 'Esther Preparation'—rituals of honor for royal influence.",
+            questions: [
+                "Am I treating my body like a 'servant' driven to exhaustion, or a 'temple' I’m nourishing?",
+                "Does my outward presentation reflect the dignity of a King’s daughter?"
+            ],
+            actions: [
+                "The Vitality Challenge: 7 days of 2L water, 7 hours sleep, and a 15-minute Prayer Walk.",
+                "The Temple Refresh: Simplify skincare using natural ingredients."
+            ]
+        },
+        {
+            month: "July",
+            title: "Purpose, Career & Leadership",
+            theme: "Called, Skilled & Sent",
+            insight: "You were created to solve a specific problem on earth. Your career is not just for a salary; it is your Pulpit.",
+            biblical: "The Book of Nehemiah. A cupbearer who used his professional position to fulfill a spiritual purpose: rebuilding the wall.",
+            questions: [
+                "What 'holy frustration' do I have? This is often a clue to your purpose.",
+                "Am I leading with a 'Kingdom Mindset' or just trying to survive the corporate ladder?"
+            ],
+            actions: [
+                "The Vision Board 2.0: Focus on the Impact you want to make, not just things you want to get.",
+                "The Skill Audit: Identify and master one skill needed for your calling."
+            ]
+        },
+        {
+            month: "August",
+            title: "Relationships & Boundaries",
+            theme: "Love with Wisdom",
+            insight: "You are a 'Garden,' not a 'Public Park.' Boundaries aren't about keeping people out; they are about protecting what God is growing.",
+            biblical: "Proverbs 4:23. 'Guard your heart.' Jesus loved the thousands but only gave 'Inner Room' access to a few.",
+            questions: [
+                "Who is currently in my 'Inner Circle' who hasn't earned the right to be there?",
+                "Where have I said 'Yes' to people when I should have said 'Yes' to God?"
+            ],
+            actions: [
+                "The Access Audit: Draw circles of access for friends and family.",
+                "The 'No' Practice: Practice saying a gracious 'No' to one request that drains you."
+            ]
+        },
+        {
+            month: "September",
+            title: "Service & Social Impact",
+            theme: "Faith in Action",
+            insight: "Fulfillment is found in 'pouring out.' A Full Packaged Woman is a River, not a Lake. If you don't flow out, you become stagnant.",
+            biblical: "Acts 9:36 (Dorcas). She was so full of good works that her community refused to let her stay dead.",
+            questions: [
+                "Whose life is better because I exist?",
+                "What resource (time, money, talent) am I currently hoarding?"
+            ],
+            actions: [
+                "The Compassion Project: Spend 4 hours this month serving an organization without seeking recognition.",
+                "The Legacy Letter: Write how you want to be remembered by those you served."
+            ]
+        },
+        {
+            month: "October",
+            title: "Celebration & Commissioning",
+            theme: "Rooted. Built. Released.",
+            insight: "This month is about moving from being a 'Student' to being a 'Steward' of the vision. You are established to establish others.",
+            biblical: "2 Timothy 2:2. 'Entrust these things to faithful women who will be able to teach others.'",
+            questions: [
+                "What is the biggest 'Giant' I defeated this year?",
+                "Who is the woman behind me that I am now equipped to mentor?"
+            ],
+            actions: [
+                "The Commissioning Vow: Write a manifesto of commitments and read it as a vow to God.",
+                "The Pay It Forward: Invite a younger woman to coffee to share a lesson learned this year."
+            ]
+        }
+    ];
+
+    const nav = document.getElementById('monthNav');
+    const main = document.getElementById('contentArea');
+
+    curriculum.forEach((item, index) => {
+        // Create Nav Buttons
+        const btn = document.createElement('button');
+        btn.innerText = item.month;
+        btn.onclick = () => showMonth(index);
+        btn.id = `btn-${index}`;
+        nav.appendChild(btn);
+
+        // Create Content Cards
+        const card = document.createElement('div');
+        card.className = 'month-card';
+        card.id = `month-${index}`;
+        card.innerHTML = `
+            <div class="month-header">
+                <h2>${item.month}</h2>
+                <div class="theme">${item.title}</div>
+                <p><em>Theme: ${item.theme}</em></p>
+            </div>
+
+            <div class="section-title">Relational Insight</div>
+            <div class="content-box">${item.insight}</div>
+
+            <div class="section-title">Biblical Depth</div>
+            <div class="biblical-box">${item.biblical}</div>
+
+            <div class="section-title">Reflection Questions</div>
+            <ul>
+                ${item.questions.map(q => `<li>${q}</li>`).join('')}
+            </ul>
+
+            <div class="section-title">Action Activities</div>
+            <ul>
+                ${item.actions.map(a => `<li>${a}</li>`).join('')}
+            </ul>
+        `;
+        main.appendChild(card);
+    });
+
+    function showMonth(index) {
+        // Hide all cards
+        document.querySelectorAll('.month-card').forEach(c => c.style.display = 'none');
+        // Deactivate all buttons
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        
+        // Show selected
+        document.getElementById(`month-${index}`).style.display = 'block';
+        document.getElementById(`btn-${index}`).classList.add('active');
+        
+        // Scroll to top of content
+        window.scrollTo({ top: 250, behavior: 'smooth' });
+    }
+
+    // Initialize first month
+    showMonth(0);
+</script>
+
+</body>
+</html>
